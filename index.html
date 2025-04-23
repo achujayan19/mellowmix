@@ -27,6 +27,10 @@
           background-color: white; 
           color: #070513;         
         }
+        .play-active {
+          background-color: white;
+          color: #070513;
+        }
     </style>
 </head>
 <body bgcolor="#070513" text="white">
@@ -186,9 +190,11 @@
       audioElement.volume = volumeControl.value / 100;
       playButton.addEventListener('click', function() {
         if (audioElement.paused) {
-          audioElement.play();
+            audioElement.play();
+            playButton.classList.add('play-active');
         } else {
-          audioElement.pause();
+            audioElement.pause();
+            playButton.classList.remove('play-active');
         }
       });
       volumeControl.addEventListener('input', function() {
